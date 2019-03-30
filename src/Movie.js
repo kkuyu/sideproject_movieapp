@@ -5,7 +5,6 @@ import './Movie.css';
 function Movie({title, poster}){
   return (
     <div>
-      <h1>Movie Component!!</h1>
       <strong>{title}</strong>
       <MoviePoster poster={poster} />
     </div>
