@@ -22,9 +22,24 @@ const movies = [
 ];
 
 class App extends Component {
+  // Component Lifecycle [https://reactjs.org/docs/react-component.html#the-component-lifecycle]
+  // Render: componentWillMount() => render() => componentDidMount()
+  // Update : componentWillReceiveProps() => shouldComponentUpdate() => componentWillUpdate() => render() => componentDidMount()
+  state = {
+    greeting: "Hellow!"
+  }
+
+  componentDidMount(){
+    setTimeout(() => {
+      this.setState({
+        greeting: "Hellow again!"
+      });
+    }, 2000);
+  }
   render() {
     return (
       <div className="App">
+        {this.state.greeting}
         {movies.map((movie, index) => {
           return <Movie title={movie.title} poster={movie.poster} key={index} />
         })}
